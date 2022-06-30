@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js">
+    </script>
+
+
+    <link rel="favicon" href="{{ url_for('static', filename='image/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/btn_style_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hr_style.scss') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fade_in_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .hidden {
+            border-style: solid;
+            border-color: rgb(211, 211, 211);
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            border-bottom-left-radius: 35px;
+            border-bottom-right-radius: 35px;
+        }
+    </style>
+    <style>
+        input::placeholder {
+            color: rgb(180, 180, 180);
+        }
+    </style>
+
+    <title>
+        : 오늘_홈</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <nav>
+                <div class="logo">
+                    <a href="/index"><img src="{{ url_for('static', filename='images/dsBuffer.bmp.png') }}"></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/info">INFO</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script type=" text/javascript ">
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop()) {
+                $('#header').addClass('active');
+            } else {
+                $('#header').removeClass('active');
+            }
+        });
+    </script>
+    <h1>
+        <div style="text-align:center" class="fade-in-box">
+            <div class="content">
+                <button type="button" style="outline:hidden; border:hidden; background-color:white;">
+                    <a href="/info"><img src="{{ url_for('static', filename='images/dsBuffer.bmp.png') }}" class="fade-in-box"></a>
+                </button>
+            </div>
+        </div>
+        <div style="text-align:center">
+            <p style="color:rgb(192, 192, 192);">
+                <div class="fade-in-box">
+                    <h2>: 오늘</h2>
+                </div>
+            </p>
+        </div>
+    </h1>
+    <div style="text-align:center">
+        <h3>
+            <p style="color:rgb(92, 92, 92);">
+                <div class="fade-in-box">
+                    <h1>당신의 하루는 어떠셨나요 ?</h1>
+                </div>
+            </p>
+        </h3>
+    </div>
+    <form name="info" method="post" action="/result ">
+        <div style="text-align:center; "><br>
+    <div style="text-align:center; ">
+        <div class="fade-in-box ">
+            <label for="name " style=" color:rgb(80, 80, 80); font-size:medium; " maxlength="8 ">이름</label>
+            <br>
+            <br>
+            <input class="hidden" id="name" name="name" maxlength="9" type="text" placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:150px; height:20px; outline:none; text-align:center; ">
+
+            <p style="color:gray; font-size:small ">10자 이내 작성</p>
+            <br>
+            <br>
+            <div class="fade-in-box " style="word-break:break-all">
+                <label style="color:rgb(80, 80, 80); font-size:medium; " maxlength="8 ">어떤 하루를 보내셨나요?</label><br><br>
+                <textarea class="hidden" name="text" maxlength="199 " type="text " placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:800px; height:600px; outline:none; text-align:center;"></textarea>
+                <br><br>
+
+                <p style="color:gray; font-size:small ">200자 이내 작성</p>
+                
+            </div>
+        </div>
+    </div>
+
+            <br>
+
+            <div class="fade-in-box ">
+                <a href="/result ">
+                    <button type="submit " id="send " class="custom-btn btn-15 ">보내기</button>
+                </a>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <p style="font-size:small; color:gray; ">제작 : 주재환 강경록 정유정<br><br>본 홈페이지는 저작권이 없습니다</p>
+
+</body>
+
+</html>
