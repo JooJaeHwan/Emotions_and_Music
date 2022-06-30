@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js">
+    </script>
+
+    <link rel="favicon" href="./favicon.ico">
+    <link rel="stylesheet" href="css/btn_style_1.css">
+    <link rel="stylesheet" href="css/hr_style.scss">
+    <link rel="stylesheet" href="css/fade_in_style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hidden {
+            border-style: hidden;
+        }
+    </style>
+
+    <title>
+        : 오늘_홈</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="images/dsBuffer.bmp.png"></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="info.html">INFO</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script type=" text/javascript ">
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop()) {
+                $('#header').addClass('active');
+            } else {
+                $('#header').removeClass('active');
+            }
+        });
+    </script>
+    <h1>
+        <div style="text-align:center" class="fade-in-box">
+            <div class="content">
+                <button type="button" style="outline:hidden; border:hidden; background-color:white;">
+                    <a href="info.html"><img src="images/dsBuffer.bmp.png" class="fade-in-box"></a>
+                </button>
+            </div>
+        </div>
+        <div style="text-align:center">
+            <p style="color:rgb(80, 80, 80);">
+                <div class="fade-in-box">
+                    <h2>: 오늘</h2>
+                </div>
+            </p>
+        </div>
+    </h1>
+    <div style="text-align:center">
+        <h3>
+            <p style="color:rgb(80, 80, 80);">
+                <div class="fade-in-box">
+                    <h1>당신의 하루는 어떠셨나요 ?</h1>
+                </div>
+            </p>
+        </h3>
+    </div>
+    <form>
+        <div style="text-align:center;"><br>
+            <div style="text-align:center;">
+                <div class="fade-in-box">
+                    <p style="color:rgb(80, 80, 80);" maxlength="8">이름</p>
+                    <input class="hidden" id="name" name="name" maxlength="9" type="text" value="여기에 입력" style="color:rgb(172, 172, 172); width:150px; height:20px; outline:none; text-align:center;">
+                    <p style="color:gray; font-size:small">10자 이내 작성</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="fade-in-box">
+                <p style="color:rgb(80, 80, 80);">어떤 하루를 보내셨나요?</p>
+
+                <input class="hidden " id="situation " name="situation " maxlength="199 " type="text " value="여기에 입력 " style="color:rgb(172, 172, 172); width:400px; height:125px; outline:none; text-align:center; ">
+
+
+                <p style="color:gray; font-size:small ">200자 이내 작성</p>
+            </div>
+            <br>
+            <a href="loading.html ">
+                <div class="fade-in-box "><button type="button " class="custom-btn btn-15 " onclick="myFuncion() ">보내기</button>
+                </div>
+            </a>
+    </form>
+
+</body>
+
+</html>
