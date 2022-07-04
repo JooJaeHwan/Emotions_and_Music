@@ -24,7 +24,7 @@ driver.implicitly_wait(3)
 driver.maximize_window()
 driver.implicitly_wait(3)
 st = []
-for i in range(1, 41):
+for i in range(42, 300):
     url = f'https://teen.munjang.or.kr/archives/category/write/life/page/{i}'
     driver.implicitly_wait(3)
     driver.get(url)

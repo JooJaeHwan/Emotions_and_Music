@@ -99,17 +99,17 @@ driver.maximize_window()
 
 page = int(input("수집할 곡 수를 입력해주세요 : "))
 time.sleep(3)
-for i in range(501, page, 50):
-    url = f'https://www.melon.com/genre/song_list.htm#params%5BgnrCode%5D=GN0100&params%5BdtlGnrCode%5D=&params%5BorderBy%5D=NEW&params%5BsteadyYn%5D=N&po=pageObj&startIndex={i}'
+for i in range(551, page, 50):
+    url = f'https://www.melon.com/genre/song_list.htm?gnrCode=GN0100#params%5BgnrCode%5D=GN0100&params%5BdtlGnrCode%5D=&params%5BorderBy%5D=POP&params%5BsteadyYn%5D=N&po=pageObj&startIndex={i}'
     driver.get(url)
     driver.implicitly_wait(5)
-    
+    driver
     time.sleep(3)
     for x in range(1, len(driver.find_elements_by_tag_name("tr"))):
         driver.find_element_by_xpath(f'//*[@id="frm"]/div/table/tbody/tr[{x}]/td[4]/div/a').click()
         driver.implicitly_wait(5)
         time.sleep(3)
-        if len(driver.find_element_by_class_name('wrap_lyric').text) <= 50:
+        if len(driver.find_element_by_class_name('wrap_lyric').text) <= 60:
             driver.back()
             continue
         artist_name = driver.find_element_by_class_name("artist_name").text                
@@ -121,7 +121,6 @@ for i in range(501, page, 50):
         driver.back()
         driver.implicitly_wait(5)
         time.sleep(3)
-    if page % 10 == 0:
-        driver.find_element_by_xpath('//*[@id="pageObjNavgation"]/div/a').click()
+
 
 driver.quit()

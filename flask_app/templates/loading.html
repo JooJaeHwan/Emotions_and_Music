@@ -2,25 +2,46 @@
 <html lang="ko">
 
 <head>
-    <link rel="favicon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/btn_style_1.css">
-    <link rel="stylesheet" href="../css/hr_style.scss">
-    <link rel="stylesheet" href="../css/fade_in_style.css">
-    <link rel="stylesheet" href="../css/info.css" />
+    <link rel="favicon" href="{{ url_for('static', filename='image/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/btn_style_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hr_style.scss') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fade_in_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         .hidden {
             border-style: hidden;
         }
-    </style>
+        /* page-loading */
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: block;
+            opacity: 0.8;
+            background: white;
+            z-index: 99;
+            text-align: center;
+        }
 
-    <link rel="stylesheet" href="../css/wait_roller.css">
+        #loading > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 100;
+        }
+    </style>
+        
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wait_roller.css') }}">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="; url=./result.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-1.12.4.js">
+
     </script>
 
     <title>: 분석 중</title>
@@ -28,18 +49,58 @@
 
 
 <body>
+    <script type=" text/javascript ">
+        $(document).ready(function () {
+            $('#loading').hide();
 
-    <div text-align="center" id="loading_image" style="width:100%; height:100%; text-align:center; font-size:12pt; color:gray; font-weight:bold; padding-top:100px;">
+            $('#result').submit(function () {
+                $('#loading').show();
+                return true;
+            });
+        });
+    </script>
+    <div text-align="center" id="loading" style="width:100%; height:100%; text-align:center; font-size:12pt; color:gray; font-weight:bold; padding-top:100px;">
         <br>
         <br>
         <br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <img src="../images/loading_icon.gif">
+        <img src="{{ url_for('static', filename='images/loading_icon.gif') }}">
         <br>
         <br>잠시만 기다려주세요
-
     </div>
-
+    <div id="result">
+    <div class="container">
+        <div id="header">
+            <nav>
+                <div class="logo">
+                    <a href="/index"><img src="{{ url_for('static', filename='images/dsBuffer.bmp.png') }}"></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/info">INFO</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <h1>
+        <div style="text-align:center" class="fade-in-box">
+            <div class="content">
+                <button type="button" style="outline:hidden; border:hidden; background-color:white;">
+                    <a href="/info"><img src="{{ url_for('static', filename='images/dsBuffer.bmp.png') }}" class="fade-in-box"></a>
+                </button>
+            </div>
+        </div>
+    </h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="text-align:center; ">
+        <button type="button" class="custom-btn btn-11 " onclick="location.href='/result' ">결과보기</button>
+    </div>
+    </div>
 </body>
 
 </html>

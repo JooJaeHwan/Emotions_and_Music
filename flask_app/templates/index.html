@@ -33,6 +33,10 @@
         input::placeholder {
             color: rgb(180, 180, 180);
         }
+        textarea::placeholder {
+            color: rgb(180, 180, 180);
+            font-size:20px;
+        }
     </style>
 
     <title>
@@ -88,21 +92,28 @@
             </p>
         </h3>
     </div>
+    {% if not session['userid'] %}
+    <div style="text-align:center; "><br>
+        <div class="fade-in-box ">
+            <br>
+            <br>
+            <button type="button" class="custom-btn btn-11 " onclick="location.href='/register' ">등록하기</button>
+
+
+            <button type="button" class="custom-btn btn-11 " onclick="location.href='/login' ">로그인</button>
+    </div>
+    </div>
+    {% else %}
     <form name="info" method="post" action="/result ">
         <div style="text-align:center; "><br>
     <div style="text-align:center; ">
-        <div class="fade-in-box ">
-            <label for="name " style=" color:rgb(80, 80, 80); font-size:medium; " maxlength="8 ">이름</label>
-            <br>
-            <br>
-            <input class="hidden" id="name" name="name" maxlength="9" type="text" placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:150px; height:20px; outline:none; text-align:center; ">
-
-            <p style="color:gray; font-size:small ">10자 이내 작성</p>
+        <div style="text-align:center; ">
+            <button type="button" class="custom-btn btn-11 " onclick="location.href='/logout' ">로그아웃</button>
             <br>
             <br>
             <div class="fade-in-box " style="word-break:break-all">
-                <label style="color:rgb(80, 80, 80); font-size:medium; " maxlength="8 ">어떤 하루를 보내셨나요?</label><br><br>
-                <textarea class="hidden" name="text" maxlength="199 " type="text " placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:800px; height:600px; outline:none; text-align:center;"></textarea>
+                <label style="color:rgb(80, 80, 80); font-size:25px; " maxlength="8 ">어떤 하루를 보내셨나요?</label><br><br>
+                <textarea class="hidden" name="text" maxlength="199 " type="text " placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:800px; height:600px; outline:none; text-align:center;font-size:20px"></textarea>
                 <br><br>
 
                 <p style="color:gray; font-size:small ">200자 이내 작성</p>
@@ -114,12 +125,14 @@
             <br>
 
             <div class="fade-in-box ">
-                <a href="/result ">
+                <a href="/result">
                     <button type="submit " id="send " class="custom-btn btn-15 ">보내기</button>
                 </a>
             </div>
         </div>
     </form>
+    {% endif %}
+    
 
     <br>
     <p style="font-size:small; color:gray; ">제작 : 주재환 강경록 정유정<br><br>본 홈페이지는 저작권이 없습니다</p>
