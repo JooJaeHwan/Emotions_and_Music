@@ -1,7 +1,7 @@
 .DS_STORE
 *.csv
 __pycache__
-*.txt
+stop_words.txt
 Crolling.py
 Writing_Crolling.py
 Labeling.py
