@@ -1,3 +1,9 @@
 .DS_STORE
 *.csv
 __pycache__
+*.txt
+Crolling.py
+Writing_Crolling.py
+Labeling.py
+DB_to_CSV.py
+*.pem

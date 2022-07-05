@@ -22,14 +22,14 @@
     </style>
 
 
-    <title>: 오늘_결과</title>
+    <title>: 오늘_하루</title>
 </head>
 
 <body>
 
     <div id="page2" class="slide-in">
         <div id="page3" class="slide-in">
-            <div class="container">
+            <div class="container" style="position:relative; z-index:2;">
                 <div id="header">
                     <nav>
                         <div class="logo">
@@ -68,14 +68,131 @@
                     <br><br>
                     <h6 style="font-size:medium; color:gray;">
                         <div class="row">
+                            {% if index == 0 %}
                             <div class="left" style='font-size:40px;'>
-                                {{ name }}님의<br>오늘 하루 느끼는 감정은<br>"{감정}" 이시군요 <br>
+                                {{ name }}님의<br>오늘 하루 <br>"사랑에서 받은 슬픔"을 <br> 위로해 드릴게요...
+  
                             </div>
                             <div class="v-line">
                             </div>
                             <div class="right" style='font-size:40px;'>
-                                "오늘의 노래 {리스트}" <br>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <form method="POST">
+                                <p><input type="checkbox" name= song value= {{ song }}> {{ artist }} - {{ song }}</p>
+                                
+                                {% endfor %}
+                                <p>
+                                    <button type="submit" class="custom-btn btn-11 ">저장</button>
+                                </p>
+                                </form>
                             </div>
+                            
+                            {% elif index == 1 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"사랑하는 사람과 느낀 행복" 을 <br> 같이 공감해 드릴게요~
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 2 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"간질간질 거리는 설렘" 을 <br> 들려드릴게요~
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 3 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"사랑하는 사람에게 느낀 질투" 을 <br> 같이 공감해 드릴게요~
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 4 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"이별에서 느낀 슬픔" 을 <br> 같이 울어드릴게요...
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 5 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"이별에서의 그리운 감정" 을 <br> 달래드릴게요...
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 6 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"이별에서의 분노" 을 <br> 같이 화내 드릴게요!!
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 7 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>모든 날이<br>"오늘같이 희망 가득한 날"이<br> 되기를~~!!
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% elif index == 8 %}
+                            <div class="left" style='font-size:40px;'>
+                                {{ name }}님의<br>오늘 하루 <br>"느낀 삶의 걱정들 모두" <br> 저희한테 털어 놓으세요~
+  
+                            </div>
+                            <div class="v-line">
+                            </div>
+                            <div class="right" style='font-size:40px;'>
+                                오늘 하루... <br>
+                                {% for artist, song in music_list %}
+                                <p><input type="checkbox" name="song" value="song"> {{ artist }} - {{ song }}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                         <br>
                         <br>

@@ -2,12 +2,15 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import pandas as pd
 from datetime import timedelta
 from flaskext.mysql import MySQL
+import keras
+from pyparsing import col
+from Model import Tfidf_padding, model_prediect, cosine
 
 mysql = MySQL()
 app = Flask(__name__)
 
-app.config['MYSQL_DATABASE_USER'] = ''
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'joojaehwan1230!'
 app.config['MYSQL_DATABASE_DB'] = 'User_Info'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_PORT'] = 3306
@@ -34,9 +37,19 @@ def info():
 
 @app.route('/result', methods=["GET","POST"])
 def result():
+    song = request.form.get('song')
+    print(song)
     name = session.get('username')
-    
-    return render_template('result.html', name=name), 200
+    text = request.form.get('text')
+    padded = Tfidf_padding(text)
+    index = model_prediect(padded)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT DISTINCT * FROM Music.music AS m ;")
+    music = cursor.fetchall()
+    music = pd.DataFrame(music, columns=["artist_name", "song_name", "lyrics"])
+    music_list = cosine(name, music, text)
+    return render_template('result.html', name=name, index=index, music_list=music_list), 200
 
 
 
@@ -101,6 +114,3 @@ def logout():
 @app.route('/loading', methods=['GET', 'POST'])
 def loading():
     return render_template('loading.html'),200
-
-        
-
