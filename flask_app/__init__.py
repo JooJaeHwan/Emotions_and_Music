@@ -114,3 +114,6 @@ def logout():
 @app.route('/loading', methods=['GET', 'POST'])
 def loading():
     return render_template('loading.html'),200
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', port=5000, debug=True)
